@@ -7,7 +7,7 @@ import {
 
 const schemaRouteMe = Joi.alternatives().try(
   Joi.string().equal('me'),
-  schemaObjectId.required(),
+  schemaObjectId,
 ).required();
 
 export const schemaAvatar = schemaURL;

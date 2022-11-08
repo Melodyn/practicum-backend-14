@@ -1,4 +1,5 @@
 import { Router } from 'express';
+// import { Joi, Segments, celebrate } from 'celebrate';
 import { NotFoundError } from '../errors/index.js';
 import { auth } from '../middlewares/auth.js';
 import {
@@ -19,6 +20,31 @@ authRouter.post('/signup', celebrateBodyUser, register);
 
 // у вас это будет 'routes/users.js'
 const userRouter = Router();
+// // пример того как выглядит валидация на каждом роуте
+// userRouter.get(
+//   '/:id',
+//   // ----
+//   // если бы мы писали мидлвару сами:
+//   // (req, res, next) => {
+//   //   // проверка валидатром req.params
+//   //   // next(new Error('Ошибка валидации')) // если нет ошибок
+//   //   // next() // если нет ошибок
+//   // },
+//
+//   // повышаем абстракцию через celebrate
+//   celebrate({ 
+//     [Segments.PARAMS]: Joi.object({ // описываем целиком схему "на месте"
+//       id: Joi.alternatives().try(
+//         Joi.string().equal('me'),
+//         Joi.string().hex().length(24),
+//       ).required(),
+//     }).required() 
+//   }),
+//   // ----
+//   readOne,
+// );
+// ----
+// выносим весь celebrate и схемы в отдельный файл, оставляем главное:
 userRouter.get('/:id', celebrateParamsRouteMe, readOne);
 
 // то, что останется в этом файле
