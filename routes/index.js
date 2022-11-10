@@ -27,18 +27,18 @@ const userRouter = Router();
 //   // если бы мы писали мидлвару сами:
 //   // (req, res, next) => {
 //   //   // проверка валидатром req.params
-//   //   // next(new Error('Ошибка валидации')) // если нет ошибок
+//   //   // next(new Error('Ошибка валидации')) // если есть ошибки
 //   //   // next() // если нет ошибок
 //   // },
 //
 //   // повышаем абстракцию через celebrate
-//   celebrate({ 
+//   celebrate({
 //     [Segments.PARAMS]: Joi.object({ // описываем целиком схему "на месте"
 //       id: Joi.alternatives().try(
 //         Joi.string().equal('me'),
 //         Joi.string().hex().length(24),
 //       ).required(),
-//     }).required() 
+//     }).required(),
 //   }),
 //   // ----
 //   readOne,

@@ -39,8 +39,8 @@ export const register = (req, res, next) => {
       return User.create(req.body);
     })
     .then((document) => {
-      const { password: removed, ...fields } = document.toObject();
-      res.send(fields);
+      const { password: removed, ...user } = document.toObject();
+      res.send(user);
     })
     .catch((err) => {
       if (err instanceof HTTPError) {

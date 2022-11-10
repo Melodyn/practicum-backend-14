@@ -43,8 +43,8 @@ const schema = new Schema({
 }, {
   versionKey: false,
   statics: {
-    findOneAndValidatePassword({ password, ...where }) {
-      return this.findOne(where)
+    findOneAndValidatePassword({ password, email }) {      
+      return this.findOne({ email })
         .select('+password')
         .then((document) => {
           if (!document) {

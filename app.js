@@ -31,7 +31,7 @@ export const run = async (envName) => {
   app.use(router);
   app.use(errors());
   app.use((err, req, res, next) => {
-    const status = err.statusCode || constants.HTTP_STATUS_SERVICE_UNAVAILABLE;
+    const status = err.statusCode || constants.HTTP_STATUS_INTERNAL_SERVER_ERROR;
     const message = err.message || 'Неизвестная ошибка';
     res.status(status).send({ message });
     next();

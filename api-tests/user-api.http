@@ -20,13 +20,13 @@ Content-Type: application/json
 
 ###
 
-GET http://localhost:3000/users/me
+GET http://localhost:3000/users/m
 Content-Type: application/json
 Authorization: {{user1_token}}
 
 ###
 
-GET http://localhost:3000/users/{{user2_id}}
+GET http://localhost:3000/users/636928ce9c3efa000f73d523
 Content-Type: application/json
 Authorization: {{user1_token}}
 
